@@ -1,0 +1,11 @@
+.cursor {
+  cursor: url(../images/cu.png) 50 50, auto;
+}
+
+.cursor2 {
+  cursor: url(../images/cu2.png) 50 50, auto;
+}
+
+.cursor3 {
+  cursor: url(../images/cu3.png) 50 50, auto;
+}

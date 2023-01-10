@@ -1,0 +1,11 @@
+.center{
+    text-align: center;
+}
+
+.title{
+    text-shadow : 0 0 0.10em #FFD700,	0 0 0.15em #FFD700, 0 0 0.80em #FFD700,	0 0 1.00em #FFD700;
+}
+
+.flip {
+    transform: scale(-1, 1);
+}
