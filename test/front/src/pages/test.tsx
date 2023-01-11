@@ -12,18 +12,23 @@ import { Center, Square, Circle  } from '@chakra-ui/react'
 
 var target_list=[0,0,0]
 function create_target(){
+target_list=[0,0,0]
     var i=0
-    var rand=Math.random()
+	var rand_tmp
     while (i<3){
-        rand*=10
-        var rand_tmp=Math.trunc(rand)
+		rand_tmp=getRandomInt(-1,10)
         if (!(rand_tmp in target_list)){
             target_list[i]=rand_tmp
             i+=1
-        rand-=rand_tmp
         }
     }
 }
+function getRandomInt(min:number, max:number) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
+
 
 function nume(number_str:string){
     var eat=0
@@ -169,10 +174,7 @@ setData(data.slice(0,-1)+i)
 
 
 function Clear(){
-if(clearflag==0){
-return(<></>)
-}
-else{
+if(eat=='3'){
 return(
 <>
 	<Text fontSize='30px'>
@@ -180,6 +182,7 @@ return(
 			GAME &nbsp; CLEAR
 		</div>
 	</Text>
+<Center>
 	<Button
 	className={styles.intro}
 	size='md'
@@ -188,6 +191,7 @@ return(
 	border='2px'
 	borderColor='white'
 	colorScheme='red'
+	
 onClick={()=>{
 	create_target()
 	setData('')
@@ -195,17 +199,20 @@ onClick={()=>{
 	setEat('')
 	setBite('')
 	setFlag(0)
-	setClearFlag(0)
 
 }}
 	
 	>
 		Retry
 	</Button>
+</Center>
 </>
 
 )
 
+}
+else{
+return(<></>)
 }
 }
 
@@ -251,9 +258,6 @@ else{
 setFlag(2)
 setEat(String(nume(data).eat))
 setBite(String(nume(data).bite))
-if(eat=='3'){
-setClearFlag(1)
-}
 setTemp(data)
 setData('')
 }
@@ -311,13 +315,13 @@ alignItems='center'
 {Clear()}
 		</Box>
 		<Box className={styles.center} alignItems="center" >
-<Box >
-{Res()}
+<Box h={100}>
+{Res() }
 </Box>
-<Box>
+<Box h={300}>
 {intro()}
 </Box>
-<Box>
+<Box h={100}>
 {result()}
 </Box>
 		</Box>
