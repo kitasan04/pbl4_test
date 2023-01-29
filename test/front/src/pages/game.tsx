@@ -74,6 +74,7 @@ bite-=eat
 return {'eat':eat,'bite':bite}
 }
 create_target()
+target_list=[0,1,2]
 /* target_list=[1,2,3] */
 var eat=nume('312').eat
 var bite=nume('312').bite
@@ -305,7 +306,7 @@ alignItems='center'
   return (
 <>
 	{App()}
-	<Box  bg={color} opacity="0.8" color="#ffffff">
+	<Box  bg={color} opacity="0.8" color="#ffffff" className={styles.widebox}>
 		<Box>
 			<Header />
 		</Box>
@@ -376,6 +377,10 @@ export default Game;
 
 
 const styles={
+	widebox:css`
+		width:100%;
+		height:max(100vh,860px);
+`,
 	box:css`
 		display:flex;
 		width:100%;

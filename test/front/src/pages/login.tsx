@@ -100,7 +100,7 @@ export default Login;
 
 const styles={
 	box:css`
-		height:100vh;
+		height:max(100vh,690px);
 		width:100%;
 `,
 	form:css`
